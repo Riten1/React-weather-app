@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { AsyncPaginate } from 'react-select-async-paginate'
 import { geoApiOptions, geoApiUrl } from '../../api'
-
 const Search = ({onSearchChange}) => {
 const [search, setSearch] = useState(null)
 
@@ -26,13 +25,17 @@ const loadOptions = (inputValue) => {
 }
 
   return (
-    <AsyncPaginate 
+  <>
+   <AsyncPaginate 
      placeholder="Search for city"
      debounceTimeout={600}
      value={search}
      onChange={handleonChange}
      loadOptions={loadOptions}
     />
+  
+  </>
+   
   )
 }
 
