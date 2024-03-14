@@ -1,20 +1,19 @@
 import React from 'react'
-import icon1 from '../images/01d.png'
 
 
-const CurrentWeather = () => {
+const CurrentWeather = ({data}) => {
   return (
     <div className='w-80 rounded-md shadow-md ml-auto mr-auto mb-0 mt-5 pt-0 pl-5 pb-5 pr-5'>
       <div className='flex justify-between items-center'>
         <div>
-        <p className='font-semibold text-lg leading-3 m-0 '>Pokhara</p>
-        <p className='font-normal text-sm m-0'>Sunny</p>
+        <p className='font-semibold text-lg leading-3 m-0 '>{data.city}</p>
+        <p className='font-normal text-sm m-0'>{data.weather[0].description}</p>
         </div>
-        <img alt='weather' src={icon1} className='w-24'></img>
+        <img alt='weather' src={`images/${data.weather[0].icon}.png`} className='w-24'></img>
       </div>
       <div className='flex justify-between items-center'>
         <p className='font-semibold text-7xl w-auto mt-2.5 mb-2.5 ml-0 mr-0'>
-          18°C
+          {(data.main.temp - 273.15).toFixed(0)}°C
         </p>
         <div className='w-full pl-5'>
           <div className='flex justify-between'>
@@ -22,7 +21,7 @@ const CurrentWeather = () => {
           </div>
           <div className='flex justify-between'>
             <span className='text-left font-normal text-xs'>Feels like</span>
-            <span className='text-right font-semibold text-xs'>22°C</span>
+            <span className='text-right font-semibold text-xs'>{(data.main.feels_like - 273.15).toFixed(0)}°C</span>
 
           </div>
           <div className='flex justify-between'>
