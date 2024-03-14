@@ -30,12 +30,12 @@ const CurrentWeather = ({data}) => {
           </div>
           <div className='flex justify-between'>
             <span className='text-left font-normal text-xs'>Humidity</span>
-            <span className='text-right font-semibold text-xs'>15%</span>
+            <span className='text-right font-semibold text-xs'>{data.main.humidity}%</span>
             </div>
 
             <div className='flex justify-between'>
             <span className='text-left font-normal text-xs'>Pressure</span>
-            <span className='text-right font-semibold text-xs'>15 hPa</span>
+            <span className='text-right font-semibold text-xs'>{data.main.pressure}hPa</span>
           </div>
             
           
