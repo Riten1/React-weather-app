@@ -21,16 +21,48 @@ console.log(forecastDays)
           <AccordionItem key={idx}>
             <AccordionItemHeading>
               <AccordionItemButton>
-                <div>
-                  <img alt="weather" src={`images/${item.weather[0].icon}.png`}></img>
-                  <label className="">{forecastDays[idx]}</label>
-                  <label>{item.weather[0].description}</label>
-                  <label>{Math.round(item.main.temp_min - 273.15)}°C / {Math.round(item.main.temp_max - 273.15)}°C</label>
+                <div className="rounded-2xl h-10 m-1.5 shadow-md items-center flex cursor-pointer text-sm pt-1 pb-1 pl-5 pr-5">
+                  <img className="w-10" alt="weather" src={`images/${item.weather[0].icon}.png`}></img>
+                  <label className="flex-1 font-semibold ml-3.5">{forecastDays[idx]}</label>
+                  <label className="flex-1 mr-3.5 text-right">{item.weather[0].description}</label>
+                  <label className="text-gray-500">{Math.round(item.main.temp_min - 273.15)}°C / {Math.round(item.main.temp_max - 273.15)}°C</label>
 
                 </div>
               </AccordionItemButton>
             </AccordionItemHeading>
-            <AccordionItemPanel></AccordionItemPanel>
+            <AccordionItemPanel>
+              <div>
+                <div>
+                  <label>Pressure: </label>
+                  <label>{item.main.pressure} hPa</label>
+                </div>
+
+                <div>
+                  <label>Humidity: </label>
+                  <label>{item.main.humidity} %</label>
+                </div>
+
+                <div>
+                  <label>Clouds: </label>
+                  <label>{item.clouds.all} %</label>
+                </div>
+
+                <div>
+                  <label>Speed: </label>
+                  <label>{item.wind.speed} m/s</label>
+                </div>
+
+                <div>
+                  <label>Sea level: </label>
+                  <label>{item.main.sea_level} m</label>
+                </div>
+
+                <div>
+                  <label>Feels like: </label>
+                  <label>{Math.round(item.main.feels_like - 273.15)}°C</label>
+                </div>
+              </div>
+            </AccordionItemPanel>
           </AccordionItem>
         ))}
       </Accordion>
